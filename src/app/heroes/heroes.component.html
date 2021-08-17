@@ -1,0 +1,42 @@
+<h2>Phantom Thieves</h2>
+<ul class="heroes">
+    <li [class.selected]= "hero === selectedHero" 
+    *ngFor="let hero of heroes" 
+    (click) = "onSelect(hero)">
+        <span class="badge"> {{hero.id}} </span>
+        <span>{{hero.name}}</span>
+    </li>
+</ul>
+
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.codename | uppercase}} Details</h2>
+    <div>
+        <span>id: </span>
+        {{selectedHero.id}}
+    </div>
+    <div>
+        <span>name: </span>
+        {{selectedHero.name}}
+    </div>
+    <div>
+        <label for="hero-name">Codename: </label>
+        <input id="code-name" [(ngModel)]="selectedHero.codename"
+        placeholder="name">
+    </div>
+</div>
+
+
+<!-- <h2>{{hero. codename | uppercase}} Details</h2>
+<div>
+    <span>id: </span>
+    {{hero.id}}
+</div>
+<div>
+    <span>name: </span>
+    {{hero.name}}
+</div>
+<br/>
+<div>
+    <label for="codename">Hero codename: </label>
+    <input id="codename" [(ngModel)]="hero.codename" placeholder="codename">
+</div> -->
